@@ -1,6 +1,5 @@
 const axios = require('axios');
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+//Function that makes the badge of the license
 function renderLicenseBadge(license) {
   if (!license) {
     return '';
@@ -11,38 +10,19 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-async function renderLicenseLink(license) {
-  let licenses = [];
-  if (!license) {
-    return '';
-  } else {
-    async function fetchDataFromAPI() {
-      try {
-        const response = await axios.get(`https://api.github.com/licenses`);
-        return  response.data; // Get the response data
-      } catch (error) {
-        throw error;
-      }
+//Function that returns the promise with URL and licenses names
+async function licenseNameUrl() {
+  let licenses = {'None': ''};
+  try {
+    const response = await axios.get(`https://api.github.com/licenses`);
+    for (const license of response.data) {
+      licenses[license.name] = license.url;
     }
-
-    try {
-      const licenseData = await fetchDataFromAPI();
-      // Process the license data as needed
-      for (const license of licenseData) {
-        licenses.push(license.url)
-        console.log(license.url);
-      }
-      return licenses;
-    } catch (error) {
-      console.error('Error fetching license data:', error.message);
-      return null;
-    }
+    return  licenses; // Get the response data
+  } catch (error) {
+    throw error;
   }
 }
-
-renderLicenseLink('MIT').then(r => {});
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -61,4 +41,4 @@ function generateMarkdown(data) {
 `;
 }
 
-module.exports = generateMarkdown;
+module.exports = {generateMarkdown, licenseNameUrl};
