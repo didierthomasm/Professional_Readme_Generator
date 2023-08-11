@@ -6,10 +6,6 @@ const {generateMarkdown, licenseNameUrl} = require("./utils/generateMarkdown");
 
 
 // TODO: Create an array of questions for user input
-const list = licenseNameUrl().then(license => {
-  console.log(Object.keys(license))
-  return Object.keys(license);
-})
 const questions = [
   {
     type: 'input',
@@ -55,7 +51,7 @@ const questions = [
     type: 'list',
     name: 'license',
     message: 'What license does the project should have?',
-    choices: [list],
+    choices: [],
     validate: (license) => {
       if (!license.length) {
         return 'Choose at least one';
@@ -71,12 +67,21 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() {
-  inquirer
-    .prompt(questions)
-    .then((inquirerResponse) => {
-      console.log(inquirerResponse);
-    })
+async function init() {
+  try {
+    const licenses = await licenseNameUrl(); // Wait for the promise to resolve
+    // to Update the 'license' question choices
+    questions.find(question => question.name === 'license').choices = Object.keys(licenses);
+
+    return await inquirer.prompt(questions)
+
+      .then((response) => {
+        console.log(response);
+      })
+    // ... (rest of your code)
+  } catch (error) {
+    console.error('Error initializing app:', error);
+  }
 }
 
 // Function call to initialize app
