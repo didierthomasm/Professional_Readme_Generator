@@ -10,7 +10,7 @@ function renderLicenseBadge(license) {
   }
 }
 
-//Function that returns the promise with URL and licenses names
+//Function that returns a promise with URL and licenses names
 async function licenseNameUrl() {
   let licenses = {'None': ''};
   try {

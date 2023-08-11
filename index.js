@@ -6,6 +6,10 @@ const {generateMarkdown, licenseNameUrl} = require("./utils/generateMarkdown");
 
 
 // TODO: Create an array of questions for user input
+const list = licenseNameUrl().then(license => {
+  console.log(Object.keys(license))
+  return Object.keys(license);
+})
 const questions = [
   {
     type: 'input',
@@ -38,14 +42,22 @@ const questions = [
     message: 'What is your email?'
   },
   {
+    type: 'input',
+    name: 'contributing',
+    message: 'What does the user need to know about contributing to the repository?'
+  },
+  {
+    type: 'input',
+    name: 'usage',
+    message: 'What does the user need to know about using the project?'
+  },
+  {
     type: 'list',
     name: 'license',
     message: 'What license does the project should have?',
-    choices: [licenseNameUrl().then(license => {
-      Object.keys(license);
-    })],
-    validate: (communication) => {
-      if (!communication.length) {
+    choices: [list],
+    validate: (license) => {
+      if (!license.length) {
         return 'Choose at least one';
       }
       return true;
@@ -54,10 +66,18 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer
+    .prompt(questions)
+    .then((inquirerResponse) => {
+      console.log(inquirerResponse);
+    })
+}
 
 // Function call to initialize app
 init();
