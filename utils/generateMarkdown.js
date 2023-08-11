@@ -36,7 +36,63 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `
+  # ${data.title}
+
+  ## Description
+  
+  ${data.description}
+  
+  ## Table of Contents
+  
+  - [Description](#description)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+  
+  ## Installation
+  
+  To install the necessary dependencies, run:
+  \`\`\`
+  ${data.installation}
+  \`\`\`
+  
+  ## Usage
+  
+  ${data.usage}
+  
+  ## License
+  
+  This project is licensed under the terms of the [${data.license} License](${data.licenseUrl}).
+  ![License Badge](${renderLicenseBadge(data.license)})
+  
+  ## Contributing
+  
+  ${data.contributing}
+  
+  ## Tests
+  
+  To run tests, use:
+  \`\`\`
+    ${data.test}
+  \`\`\`
+  
+  ## Questions
+  
+  If you have any questions or need further assistance, feel free to reach out:
+  
+  - [GitHub](https://github.com/${data.github})
+  - ${data.email}
+  
+  ---
+  
+  This README was generated with ❤️ using the Awesome README Generator.
+  
+  ---
 
 `;
 }

@@ -51,13 +51,7 @@ const questions = [
     type: 'list',
     name: 'license',
     message: 'What license does the project should have?',
-    choices: [],
-    validate: (license) => {
-      if (!license.length) {
-        return 'Choose at least one';
-      }
-      return true;
-    }
+    choices: []
   }
 ];
 
@@ -73,16 +67,20 @@ async function init() {
     // to Update the 'license' question choices
     questions.find(question => question.name === 'license').choices = Object.keys(licenses);
 
-    return await inquirer.prompt(questions)
+    const response = await inquirer.prompt(questions)
 
-      .then((response) => {
-        console.log(response);
-      })
-    // ... (rest of your code)
+    const selectedLicense = response.license;
+    response.licenseUrl = licenses[selectedLicense];
+
+    return writeToFile('./Result/README.md', generateMarkdown({ ...response}));
   } catch (error) {
     console.error('Error initializing app:', error);
   }
 }
 
 // Function call to initialize app
-init();
+init().then(r => {
+  if (r){
+    console.log('README.md successfully generated!')
+  }
+});
