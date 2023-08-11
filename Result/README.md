@@ -1,9 +1,9 @@
 
-  # Awesome Project
+  # Awesome project
 
   ## Description
   
-  You can do awesome things
+  You cand do awesome things
   
   ## Table of Contents
   
@@ -25,7 +25,7 @@
   
   ## Usage
   
-  You can fork it and do what you need to do
+  You cand do what you want
   
   ## License
   
@@ -34,14 +34,14 @@
   
   ## Contributing
   
-  You're welcome to contribute
+  Fell free and thanks
   
   ## Tests
   
   To run tests, use:
-  \`\`\`
+  ```
     npm test
-  \`\`\`
+  ```
   
   ## Questions
   

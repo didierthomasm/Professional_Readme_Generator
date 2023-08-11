@@ -65,7 +65,8 @@ If you have any questions or need further assistance, feel free to reach out:
 
 ## Link to Video
 
-Check out this [screencast video](#) for a walkthrough of how to use the Awesome README Generator!
+Check out this [screencast video](./assets/video/Awesome_Readme_Generator.mp4) for a walkthrough 
+of how to use the Awesome README Generator!
 
 ---
 
