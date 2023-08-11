@@ -65,8 +65,10 @@ If you have any questions or need further assistance, feel free to reach out:
 
 ## Link to Video
 
-Check out this [screencast video](./assets/video/Awesome_Readme_Generator.mp4) for a walkthrough 
+Check out this [screencast video](./assets/video/Awesome_Readme_Generator.gif) for a walkthrough 
 of how to use the Awesome README Generator!
+
+![Example GIF](./assets/video/Awesome_Readme_Generator.gif)
 
 ---
 
