@@ -1,11 +1,11 @@
-// TODO: Include packages needed for this application
-const fs = require("fs");
+// Imported modules
+const { writeFile } = require("fs").promises;
 const inquirer = require("inquirer");
-const path = require("path");
-const {generateMarkdown, licenseNameUrl} = require("./utils/generateMarkdown");
+const { generateMarkdown, licenseNameUrl } = require("./utils/generateMarkdown");
+const {join} = require("path");
 
 
-// TODO: Create an array of questions for user input
+//Array of questions to pass to Inquirer
 const questions = [
   {
     type: 'input',
@@ -55,12 +55,12 @@ const questions = [
   }
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+// Function to write the readme
+async function writeToFile(fileName, data) {
+  await writeFile(join(process.cwd(), fileName), data);
 }
 
-// TODO: Create a function to initialize app
+// Function to initialize the app
 async function init() {
   try {
     const licenses = await licenseNameUrl(); // Wait for the promise to resolve
@@ -72,15 +72,12 @@ async function init() {
     const selectedLicense = response.license;
     response.licenseUrl = licenses[selectedLicense];
 
-    return writeToFile('./Result/README.md', generateMarkdown({ ...response}));
+    await writeToFile('./Result/README2.md', generateMarkdown({ ...response}));
+    console.log('README.md successfully generated!');
   } catch (error) {
     console.error('Error initializing app:', error);
   }
 }
 
 // Function call to initialize app
-init().then(r => {
-  if (r){
-    console.log('README.md successfully generated!')
-  }
-});
+init();
