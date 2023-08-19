@@ -1,9 +1,9 @@
 
-  # Awesome project
+  # Awesome Readme
 
   ## Description
   
-  You cand do awesome things
+  Awesome readme generator
   
   ## Table of Contents
   
@@ -25,7 +25,7 @@
   
   ## Usage
   
-  You cand do what you want
+  You can fork it
   
   ## License
   
@@ -34,7 +34,7 @@
   
   ## Contributing
   
-  Fell free and thanks
+  You can do it
   
   ## Tests
   

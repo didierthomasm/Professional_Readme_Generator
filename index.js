@@ -69,7 +69,7 @@ async function init() {
 
     const response = await inquirer.prompt(questions)
 
-    const selectedLicense = response.license;
+    const selectedLicense = response["license"];
     response.licenseUrl = licenses[selectedLicense];
 
     await writeToFile('./Result/README2.md', generateMarkdown({ ...response}));
