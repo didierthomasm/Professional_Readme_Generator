@@ -1,9 +1,9 @@
 
-  # Awesome Readme
+  # Awesome Project
 
   ## Description
   
-  Awesome readme generator
+  It is an awesome project
   
   ## Table of Contents
   
@@ -25,7 +25,7 @@
   
   ## Usage
   
-  You can fork it
+  Yes, please
   
   ## License
   
@@ -34,7 +34,7 @@
   
   ## Contributing
   
-  You can do it
+  Feel free
   
   ## Tests
   
@@ -47,8 +47,8 @@
   
   If you have any questions or need further assistance, feel free to reach out:
   
-  - [GitHub](https://github.com/didierthomasm)
-  - didierthomas.m@gmail.com
+  - [GitHub](https://github.com/didiertm)
+  - didier@mail.c
   
   ---
   

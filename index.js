@@ -2,7 +2,7 @@
 const { writeFile } = require("fs").promises;
 const inquirer = require("inquirer");
 const { generateMarkdown, licenseNameUrl } = require("./utils/generateMarkdown");
-const {join} = require("path");
+const { join} = require("path");
 
 
 //Array of questions to pass to Inquirer
